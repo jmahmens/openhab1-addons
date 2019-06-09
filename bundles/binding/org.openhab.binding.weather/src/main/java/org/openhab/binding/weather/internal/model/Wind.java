@@ -10,7 +10,6 @@ package org.openhab.binding.weather.internal.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-
 import org.openhab.binding.weather.internal.annotation.Provider;
 import org.openhab.binding.weather.internal.annotation.ProviderMappings;
 import org.openhab.binding.weather.internal.converter.ConverterType;
@@ -32,7 +31,7 @@ public class Wind {
             @Provider(name = ProviderName.METEOBLUE, property = "wind_speed_max"),
             @Provider(name = ProviderName.APIXU, property = "wind_kph"),
             @Provider(name = ProviderName.APIXU, property = "maxwind_kph"),
-            @Provider(name = ProviderName.WEATHERBIT, property = "wind_spd") })
+            @Provider(name = ProviderName.WEATHERBIT, property = "wind_spd", converter = ConverterType.WIND_MPS) })
     private Double speed;
 
     @ProviderMappings({ @Provider(name = ProviderName.WORLDWEATHERONLINE, property = "winddir16Point"),
@@ -54,7 +53,7 @@ public class Wind {
             @Provider(name = ProviderName.OPENWEATHERMAP, property = "gust", converter = ConverterType.WIND_MPS),
             @Provider(name = ProviderName.HAMWEATHER, property = "windGustKPH"),
             @Provider(name = ProviderName.METEOBLUE, property = "wind_gust_max"),
-            @Provider(name = ProviderName.WEATHERBIT, property = "wind_gust_spd") })
+            @Provider(name = ProviderName.WEATHERBIT, property = "wind_gust_spd", converter = ConverterType.WIND_MPS) })
     private Double gust;
 
     @ProviderMappings({ @Provider(name = ProviderName.HAMWEATHER, property = "windchillC") })
